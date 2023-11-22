@@ -1,17 +1,26 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Background } from '../../components/Background';
 import { MenuButton } from '../../components/MenuButton';
 
 function Home() {
-    const navigation = useNavigation();
-
     return (
-        <Background>
+        <Background
+          contentContainerStyle={{ paddingTop: 20 }}
+        >
           <MenuButton 
-          title='Definição e Etiologia da Sífilis'
-          icon='pill'
-          onPress={() => 1}
+            title='Definição e etiologia da sífilis'
+            icon='pill'
+            onPress={() => 1}
+          />
+          <MenuButton 
+            title='Classificação clínica da sífilis'
+            icon='pill'
+            onPress={() => 1}
+          />
+          <MenuButton 
+            title='Transmissão'
+            icon='pill'
+            onPress={() => 1}
           />
         </Background>
       );

@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
     backgroundColor: '#fff',
-    borderRadius: 16
+    borderRadius: 16,
+    marginBottom: 16,
   },
   title: {
     marginLeft: 20,

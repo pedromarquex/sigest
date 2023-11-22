@@ -6,9 +6,10 @@ interface Props {
     children: React.ReactNode;
     style?: ViewStyle;
     scrollViewStyle?: ViewStyle;
+    contentContainerStyle?: ViewStyle;
 }
 
-function Background({children, style, scrollViewStyle}: Props) {
+function Background({children, style, scrollViewStyle, contentContainerStyle}: Props) {
     return (
         <SafeAreaView
             style={[styles.container, style]}
@@ -16,6 +17,7 @@ function Background({children, style, scrollViewStyle}: Props) {
             <ScrollView
                 style={[styles.scrollView, scrollViewStyle]}
                 showsVerticalScrollIndicator={false}
+                contentContainerStyle={contentContainerStyle}
                 bounces={false}
             >
                 {children}
