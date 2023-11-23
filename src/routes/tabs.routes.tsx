@@ -72,13 +72,21 @@ export function Tabs() {
         tabBarLabelStyle: {
           fontFamily: fonts.medium,
           fontSize: 12,
-          marginBottom: 10
+          marginBottom: 10,
         },
         tabBarStyle: {
           borderTopWidth: 0,
           backgroundColor: '#fff',
-          height: 60 + insets.bottom
+          height: 60 + insets.bottom,
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
+          position: 'absolute',
         },
+        tabBarItemStyle: {
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
+          backgroundColor: '#fff',
+        }
       })}
     >
       <Tab.Screen 
