@@ -4,19 +4,22 @@ import { StyleSheet } from 'react-native';
 
 import {
   Montserrat_400Regular,
+  Montserrat_500Medium,
   Montserrat_600SemiBold,
   Montserrat_700Bold,
   useFonts
 } from '@expo-google-fonts/montserrat';
 
 import 'react-native-gesture-handler';
-import { MyStack } from './src/routes/stacks.routes';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Tabs } from './src/routes/tabs.routes';
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     Montserrat_400Regular, 
     Montserrat_600SemiBold, 
-    Montserrat_700Bold 
+    Montserrat_700Bold,
+    Montserrat_500Medium
   });
 
   if (!fontsLoaded || fontError) {
@@ -24,10 +27,12 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <StatusBar style="dark" />
-      <MyStack />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar style="dark" />
+        <Tabs />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
