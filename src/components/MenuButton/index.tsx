@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import { colors } from "../../@theme/colors";
 import { fonts } from '../../@theme/fonts';
+import MicroscopeIcon from '../../assets/icons/microscope-icon.svg';
 import PillIcon from '../../assets/icons/pill-icon.svg';
 
 interface Props {
@@ -14,13 +15,18 @@ interface Props {
 
 function MenuButton({ title, onPress, icon }: Props) {
 
+  const icons = {
+    pill: <PillIcon width={32} height={32} />,
+    microscope: <MicroscopeIcon width={32} height={32} />
+  }
+
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={onPress}
       activeOpacity={0.4}
     >
-      <PillIcon width={32} height={32} />
+      {icons[icon]}
       <Text style={styles.title}>{title}</Text>
 
       <Feather

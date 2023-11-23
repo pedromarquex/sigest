@@ -20,7 +20,7 @@ function Home() {
     {
       title: 'Classificação clínica da sífilis',
       icon: 'pill' as 'pill',
-      onPress: () => 1,
+      onPress: () => navigation.navigate('Classification')
     },
     {
       title: 'Transmissão',

@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: '100%',
     borderRadius: 16,
-    marginTop: 8
+    marginTop: 8,
+    marginBottom: 16
   }
 });

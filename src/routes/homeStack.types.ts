@@ -9,6 +9,8 @@ declare global {
 export type RootStackParamList = {
     Home: undefined;
     Definition: undefined;
+    Classification: undefined;
+    Primary: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
