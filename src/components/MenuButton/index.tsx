@@ -3,6 +3,7 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import { colors } from "../../@theme/colors";
+import { fonts } from '../../@theme/fonts';
 import PillIcon from '../../assets/icons/pill-icon.svg';
 
 interface Props {
@@ -26,7 +27,7 @@ function MenuButton({ title, onPress, icon }: Props) {
           name='chevron-right'
           size={24}
           color={colors.blackGreen}
-          style={{ marginLeft: 'auto'}}
+          style={{ marginLeft: 'auto' }}
       />
     </TouchableOpacity>
   )
@@ -45,7 +46,8 @@ const styles = StyleSheet.create({
   },
   title: {
     marginLeft: 20,
-    fontSize: 16,
+    fontSize: 14,
     color: colors.blackGreen,
+    fontFamily: fonts.regular
   },
 })

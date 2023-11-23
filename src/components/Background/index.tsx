@@ -10,20 +10,24 @@ interface Props {
 }
 
 function Background({children, style, scrollViewStyle, contentContainerStyle}: Props) {
-    return (
-        <SafeAreaView
-            style={[styles.container, style]}
-        >
-            <ScrollView
-                style={[styles.scrollView, scrollViewStyle]}
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={contentContainerStyle}
-                bounces={false}
-            >
-                {children}
-            </ScrollView>
-        </SafeAreaView>
-      );
+  
+  return (
+      <SafeAreaView
+          style={[
+            styles.container, 
+            style
+          ]}
+      >
+          <ScrollView
+              style={[styles.scrollView, scrollViewStyle]}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={contentContainerStyle}
+              bounces={false}
+          >
+              {children}
+          </ScrollView>
+      </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -33,7 +37,8 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         paddingHorizontal: 20,
-    },
+        width: '100%',
+    }
 })
 
 export { Background };
