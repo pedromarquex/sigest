@@ -7,13 +7,14 @@ import { BodyText } from "../../../components/BodyText";
 import { MenuButton } from "../../../components/MenuButton";
 
 export function Classification() {
+
   const navigation = useNavigation();
 
   const contentText = [
-    "A sífilis é dividida em estágios que orientam tratamento e monitoramento da infecção:" +
-      "\n - Sífilis recente (primária, secundária e latente recente): até um ano de evolução;" +
-      "\n - Sífilis tardia (latente tardia e terciária): mais de um ano de evolução.",
-  ];
+    'A sífilis é dividida em estágios que orientam tratamento e monitoramento da infecção:' +
+    '\n - Sífilis recente (primária, secundária e latente recente): até um ano de evolução;' +
+   '\n - Sífilis tardia (latente tardia e terciária): mais de um ano de evolução.'
+  ]
 
   return (
     <Background style={styles.container}>
@@ -23,22 +24,32 @@ export function Classification() {
         ))}
       </BodyContainer>
       <MenuButton
-        title="Primária"
-        icon="microscope"
-        onPress={() => navigation.navigate("Primary")}
-      />
-      <MenuButton
-        title="Secundária"
-        icon="microscope"
-        onPress={() => navigation.navigate("Secondary")}
-      />
+          title="Primária"
+          icon="microscope"
+          onPress={() => navigation.navigate('Primary')}
+        />
+        <MenuButton
+          title="Secundária"
+          icon="microscope"
+          onPress={() => 1}
+        />
+        <MenuButton
+          title="Latente"
+          icon="microscope"
+          onPress={() => 1}
+        />
+        <MenuButton
+          title="Terciária"
+          icon="microscope"
+          onPress={() => 1}
+        />
     </Background>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
