@@ -14,6 +14,10 @@ export type RootStackParamList = {
   Secondary: undefined;
   Latent: undefined;
   Terciary: undefined;
+  Transmission: undefined;
+  Sexual: undefined;
+  Vertical: undefined;
+  BloodTransmission: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

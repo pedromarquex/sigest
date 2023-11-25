@@ -33,7 +33,8 @@ function Background({children, style, scrollViewStyle, contentContainerStyle}: P
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.background
+        backgroundColor: colors.background,
+        paddingBottom: 80,
     },
     scrollView: {
         paddingHorizontal: 20,

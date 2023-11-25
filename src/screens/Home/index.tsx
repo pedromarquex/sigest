@@ -24,7 +24,7 @@ function Home() {
     {
       title: "Transmissão",
       icon: "pill" as "pill",
-      onPress: () => 1,
+      onPress: () => navigation.navigate("Transmission"),
     },
     {
       title: "Diagnóstico",
