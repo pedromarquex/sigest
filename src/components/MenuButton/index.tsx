@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontSize: 14,
     color: colors.blackGreen,
-    fontFamily: fonts.regular
+    fontFamily: fonts.regular,
+    maxWidth: '80%'
   },
 })

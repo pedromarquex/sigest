@@ -22,7 +22,7 @@ export function Transmission() {
       <MenuButton
         title="Sanguínea"
         icon="microscope"
-        onPress={() => navigation.navigate("BloodTrasmition")}
+        onPress={() => navigation.navigate("BloodTransmission")}
       />
     </Background>
   );

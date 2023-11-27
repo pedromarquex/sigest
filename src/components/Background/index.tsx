@@ -21,7 +21,7 @@ function Background({children, style, scrollViewStyle, contentContainerStyle}: P
           <ScrollView
               style={[styles.scrollView, scrollViewStyle]}
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={contentContainerStyle}
+              contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
               bounces={false}
           >
               {children}
@@ -34,11 +34,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.background,
-        paddingBottom: 80,
     },
     scrollView: {
         paddingHorizontal: 20,
         width: '100%',
+    },
+    contentContainer: {
+        paddingBottom: 80,
     }
 })
 

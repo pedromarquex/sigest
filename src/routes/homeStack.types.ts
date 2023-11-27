@@ -18,6 +18,11 @@ export type RootStackParamList = {
   Sexual: undefined;
   Vertical: undefined;
   BloodTransmission: undefined;
+  Diagnosis: undefined;
+  DirectExams: undefined;
+  ImmunologicalTests: undefined;
+  TreponemalTests: undefined;
+  QuickTests: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

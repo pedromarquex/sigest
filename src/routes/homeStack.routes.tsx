@@ -11,7 +11,12 @@ import { Tertiary } from "../screens/classification/Tertiary";
 import { Transmission } from "../screens/transmission/Transmission";
 import { Sexual } from "../screens/transmission/Sexual";
 import { Vertical } from "../screens/transmission/Vertical";
-import { BloodTrasmition } from "../screens/transmission/BloodTransmission";
+import { BloodTransmission } from "../screens/transmission/BloodTransmission";
+import { Diagnosis } from "../screens/diagnosis/Diagnosis";
+import { DirectExams } from "../screens/diagnosis/directExams/DirectExams";
+import { ImmunologicalTests } from "../screens/diagnosis/immunologicalTests/ImmunologicalTests";
+import { TreponemalTests } from "../screens/diagnosis/immunologicalTests/treponemalTests/TreponemalTests";
+import { QuickTests } from "../screens/diagnosis/immunologicalTests/treponemalTests/QuickTests";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -87,10 +92,45 @@ function MyStack() {
         }}
       />
       <Stack.Screen
-        name="BloodTrasmition"
-        component={BloodTrasmition}
+        name="BloodTransmission"
+        component={BloodTransmission}
         options={{
           header: () => <Header title="Transmissão" />,
+        }}
+      />
+      <Stack.Screen
+        name="Diagnosis"
+        component={Diagnosis}
+        options={{
+          header: () => <Header title="Diagnóstico" />,
+        }}
+      />
+      <Stack.Screen
+        name="DirectExams"
+        component={DirectExams}
+        options={{
+          header: () => <Header title="Exames diretos" />,
+        }}
+      />
+      <Stack.Screen
+        name="ImmunologicalTests"
+        component={ImmunologicalTests}
+        options={{
+          header: () => <Header title="Testes imunológicos" />,
+        }}
+      />
+      <Stack.Screen
+        name="TreponemalTests"
+        component={TreponemalTests}
+        options={{
+          header: () => <Header title="Testes imunológicos" />,
+        }}
+      />
+      <Stack.Screen
+        name="QuickTests"
+        component={QuickTests}
+        options={{
+          header: () => <Header title="Testes imunológicos" />,
         }}
       />
     </Stack.Navigator>

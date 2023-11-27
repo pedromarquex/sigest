@@ -1,23 +1,35 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Background } from "../../../components/Background";
 import { BodyContainer } from "../../../components/BodyContainer";
 import { BodyText } from "../../../components/BodyText";
-import { Title } from "../../../components/Title";
+import { MenuButton } from "../../../components/MenuButton";
 
-export function BloodTransmission() {
+export function Diagnosis() {
+  const navigation = useNavigation();
+
   const contentText = [
-    "É rara pelo controle dos hemocentros.",
+    "Os testes utilizados para o diagnóstico de sífilis são divididos em duas categorias: exames diretos e testes imunológicos.",
   ];
 
   return (
     <Background style={styles.container}>
       <BodyContainer>
-        <Title text="Sanguínea" />
         {contentText.map((text, index) => (
           <BodyText key={index} text={text} />
         ))}
       </BodyContainer>
+      <MenuButton
+        title="Exames diretos"
+        icon="microscope"
+        onPress={() => navigation.navigate("DirectExams")}
+      />
+      <MenuButton
+        title="Testes imunológicos"
+        icon="microscope"
+        onPress={() => navigation.navigate("ImmunologicalTests")}
+      />
     </Background>
   );
 }
