@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "967762f5-995b-49cd-908b-4acc8d86a71c"
+      }
+    },
+    "owner": "appsigest"
   }
 }
