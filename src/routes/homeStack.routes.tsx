@@ -21,6 +21,8 @@ import { HemagglutinationTests } from "../screens/diagnosis/immunologicalTests/t
 import { IndirectImmunofluorescenceTest } from "../screens/diagnosis/immunologicalTests/treponemalTests/IndirectImmunofluorescenceTest";
 import { EnzymeImmunoassays } from "../screens/diagnosis/immunologicalTests/treponemalTests/EnzymeImmunoassays";
 import { NonTreponemalTests } from "../screens/diagnosis/immunologicalTests/NonTreponemalTests";
+import { DarkFieldExams } from "../screens/diagnosis/directExams/DarkFieldExams";
+import { DirectSearchWithStainedMaterial } from "../screens/diagnosis/directExams/DirectSearchWithStainedMaterial";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -163,6 +165,20 @@ function MyStack() {
         component={NonTreponemalTests}
         options={{
           header: () => <Header title="Testes não treponêmicos " />,
+        }}
+      />
+      <Stack.Screen
+        name="DarkFieldExams"
+        component={DarkFieldExams}
+        options={{
+          header: () => <Header title="Exames Diretos" />,
+        }}
+      />
+      <Stack.Screen
+        name="DirectSearchWithStainedMaterial"
+        component={DirectSearchWithStainedMaterial}
+        options={{
+          header: () => <Header title="Exames Diretos" />,
         }}
       />
     </Stack.Navigator>

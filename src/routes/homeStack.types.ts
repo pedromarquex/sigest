@@ -27,6 +27,8 @@ export type RootStackParamList = {
   IndirectImmunofluorescenceTest: undefined;
   EnzymeImmunoassays: undefined;
   NonTreponemalTests: undefined;
+  DarkFieldExams: undefined;
+  DirectSearchWithStainedMaterial: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

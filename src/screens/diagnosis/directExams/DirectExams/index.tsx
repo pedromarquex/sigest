@@ -12,12 +12,12 @@ export function DirectExams() {
       <MenuButton
         title="Exames em campo escuro"
         icon="microscope"
-        onPress={() => 1}
+        onPress={() => navigation.navigate("DarkFieldExams")}
       />
       <MenuButton
         title="Pesquisa direta com material corado"
         icon="microscope"
-        onPress={() => 1}
+        onPress={() => navigation.navigate("DirectSearchWithStainedMaterial")}
       />
       
     </Background>
