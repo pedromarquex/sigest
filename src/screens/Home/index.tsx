@@ -44,7 +44,7 @@ function Home() {
     {
       title: "Seguimento pós-tratamento",
       icon: "pill" as "pill",
-      onPress: () => 1,
+      onPress: () => navigation.navigate("PostTreatmentFollowUp"),
     },
     {
       title: "Notificação compulsória",

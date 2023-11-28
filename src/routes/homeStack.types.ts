@@ -35,7 +35,8 @@ export type RootStackParamList = {
   Application: undefined;
   JarischHerxheimerReaction: undefined;
   SafetyAndEffectiveness: undefined;
-  SensitivityTest: undefined; 
+  SensitivityTest: undefined;
+  PostTreatmentFollowUp: undefined; 
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

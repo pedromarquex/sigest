@@ -30,6 +30,7 @@ import { Application } from "../screens/treatment/benzathineBenzylpenicillin/App
 import { JarischHerxheimerReaction } from "../screens/treatment/benzathineBenzylpenicillin/JarischHerxheimerReaction";
 import { SafetyAndEffectiveness } from "../screens/treatment/benzathineBenzylpenicillin/SafetyAndEffectiveness";
 import { SensitivityTest } from "../screens/treatment/benzathineBenzylpenicillin/SensitivityTest";
+import { PostTreatmentFollowUp } from "../screens/PostTreatmentFollowUp";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -235,6 +236,13 @@ function MyStack() {
         component={SensitivityTest}
         options={{
           header: () => <Header title="Tratamento" />,
+        }}
+      />
+      <Stack.Screen
+        name="PostTreatmentFollowUp"
+        component={PostTreatmentFollowUp}
+        options={{
+          header: () => <Header title="Seguimento pós tratamento" />,
         }}
       />
     </Stack.Navigator>
