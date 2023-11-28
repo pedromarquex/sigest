@@ -31,6 +31,7 @@ import { JarischHerxheimerReaction } from "../screens/treatment/benzathineBenzyl
 import { SafetyAndEffectiveness } from "../screens/treatment/benzathineBenzylpenicillin/SafetyAndEffectiveness";
 import { SensitivityTest } from "../screens/treatment/benzathineBenzylpenicillin/SensitivityTest";
 import { PostTreatmentFollowUp } from "../screens/PostTreatmentFollowUp";
+import { CompulsoryNotification } from "../screens/CompulsoryNotification";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -243,6 +244,13 @@ function MyStack() {
         component={PostTreatmentFollowUp}
         options={{
           header: () => <Header title="Seguimento pós tratamento" />,
+        }}
+      />
+      <Stack.Screen
+        name="CompulsoryNotification"
+        component={CompulsoryNotification}
+        options={{
+          header: () => <Header title="Notificação Compulsória" />,
         }}
       />
     </Stack.Navigator>

@@ -49,7 +49,7 @@ function Home() {
     {
       title: "Notificação compulsória",
       icon: "pill" as "pill",
-      onPress: () => 1,
+      onPress: () => navigation.navigate("CompulsoryNotification"),
     },
     {
       title: "Referências",
