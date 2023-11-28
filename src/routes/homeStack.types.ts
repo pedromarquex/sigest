@@ -29,6 +29,13 @@ export type RootStackParamList = {
   NonTreponemalTests: undefined;
   DarkFieldExams: undefined;
   DirectSearchWithStainedMaterial: undefined;
+  Treatment: undefined;
+  BenzathineBenzylpenicillin: undefined;
+  GeneralInformation: undefined;
+  Application: undefined;
+  JarischHerxheimerReaction: undefined;
+  SafetyAndEffectiveness: undefined;
+  SensitivityTest: undefined; 
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

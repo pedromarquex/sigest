@@ -23,6 +23,13 @@ import { EnzymeImmunoassays } from "../screens/diagnosis/immunologicalTests/trep
 import { NonTreponemalTests } from "../screens/diagnosis/immunologicalTests/NonTreponemalTests";
 import { DarkFieldExams } from "../screens/diagnosis/directExams/DarkFieldExams";
 import { DirectSearchWithStainedMaterial } from "../screens/diagnosis/directExams/DirectSearchWithStainedMaterial";
+import { Treatment } from "../screens/treatment/Treatment";
+import { BenzathineBenzylpenicillin } from "../screens/treatment/benzathineBenzylpenicillin/BenzathineBenzylpenicillin";
+import { GeneralInformation } from "../screens/treatment/benzathineBenzylpenicillin/GeneralInformation";
+import { Application } from "../screens/treatment/benzathineBenzylpenicillin/Application";
+import { JarischHerxheimerReaction } from "../screens/treatment/benzathineBenzylpenicillin/JarischHerxheimerReaction";
+import { SafetyAndEffectiveness } from "../screens/treatment/benzathineBenzylpenicillin/SafetyAndEffectiveness";
+import { SensitivityTest } from "../screens/treatment/benzathineBenzylpenicillin/SensitivityTest";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -179,6 +186,55 @@ function MyStack() {
         component={DirectSearchWithStainedMaterial}
         options={{
           header: () => <Header title="Exames Diretos" />,
+        }}
+      />
+      <Stack.Screen
+        name="Treatment"
+        component={Treatment}
+        options={{
+          header: () => <Header title="Tratamento" />,
+        }}
+      />
+      <Stack.Screen
+        name="BenzathineBenzylpenicillin"
+        component={BenzathineBenzylpenicillin}
+        options={{
+          header: () => <Header title="Tratamento" />,
+        }}
+      />
+      <Stack.Screen
+        name="GeneralInformation"
+        component={GeneralInformation}
+        options={{
+          header: () => <Header title="Tratamento" />,
+        }}
+      />
+      <Stack.Screen
+        name="Application"
+        component={Application}
+        options={{
+          header: () => <Header title="Tratamento" />,
+        }}
+      />
+      <Stack.Screen
+        name="JarischHerxheimerReaction"
+        component={JarischHerxheimerReaction}
+        options={{
+          header: () => <Header title="Tratamento" />,
+        }}
+      />
+      <Stack.Screen
+        name="SafetyAndEffectiveness"
+        component={SafetyAndEffectiveness}
+        options={{
+          header: () => <Header title="Tratamento" />,
+        }}
+      />
+      <Stack.Screen
+        name="SensitivityTest"
+        component={SensitivityTest}
+        options={{
+          header: () => <Header title="Tratamento" />,
         }}
       />
     </Stack.Navigator>

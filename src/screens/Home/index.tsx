@@ -34,7 +34,7 @@ function Home() {
     {
       title: "Tratamento",
       icon: "pill" as "pill",
-      onPress: () => 1,
+      onPress: () => navigation.navigate("Treatment"),
     },
     {
       title: "Direcionamento assistencial",
