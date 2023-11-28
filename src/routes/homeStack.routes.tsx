@@ -32,6 +32,7 @@ import { SafetyAndEffectiveness } from "../screens/treatment/benzathineBenzylpen
 import { SensitivityTest } from "../screens/treatment/benzathineBenzylpenicillin/SensitivityTest";
 import { PostTreatmentFollowUp } from "../screens/PostTreatmentFollowUp";
 import { CompulsoryNotification } from "../screens/CompulsoryNotification";
+import { References } from "../screens/References";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -251,6 +252,13 @@ function MyStack() {
         component={CompulsoryNotification}
         options={{
           header: () => <Header title="Notificação Compulsória" />,
+        }}
+      />
+      <Stack.Screen
+        name="References"
+        component={References}
+        options={{
+          header: () => <Header title="Referências" />,
         }}
       />
     </Stack.Navigator>

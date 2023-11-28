@@ -37,6 +37,8 @@ export type RootStackParamList = {
   SafetyAndEffectiveness: undefined;
   SensitivityTest: undefined;
   PostTreatmentFollowUp: undefined; 
+  CompulsoryNotification: undefined;
+  References: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
