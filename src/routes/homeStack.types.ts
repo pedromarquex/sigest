@@ -23,6 +23,9 @@ export type RootStackParamList = {
   ImmunologicalTests: undefined;
   TreponemalTests: undefined;
   QuickTests: undefined;
+  HemagglutinationTests: undefined;
+  IndirectImmunofluorescenceTest: undefined;
+  EnzymeImmunoassays: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

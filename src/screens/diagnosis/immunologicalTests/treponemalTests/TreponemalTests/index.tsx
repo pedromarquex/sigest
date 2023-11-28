@@ -18,17 +18,18 @@ export function TreponemalTests() {
       <MenuButton
         title="Testes de hemaglutinação"
         icon="microscope"
-        onPress={() => 1}
+        onPress={() => navigation.navigate("HemagglutinationTests")}
       />
       <MenuButton
         title="Teste de imunofluorescência indireta"
         icon="microscope"
-        onPress={() => 1}
+        onPress={() => navigation.navigate("IndirectImmunofluorescenceTest")
+      }
       />
       <MenuButton
         title="Ensaios imunoenzimáticos "
         icon="microscope"
-        onPress={() => 1}
+        onPress={() => navigation.navigate("EnzymeImmunoassays")}
       />
     </Background>
   );
