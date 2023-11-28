@@ -20,6 +20,7 @@ import { QuickTests } from "../screens/diagnosis/immunologicalTests/treponemalTe
 import { HemagglutinationTests } from "../screens/diagnosis/immunologicalTests/treponemalTests/HemagglutinationTests";
 import { IndirectImmunofluorescenceTest } from "../screens/diagnosis/immunologicalTests/treponemalTests/IndirectImmunofluorescenceTest";
 import { EnzymeImmunoassays } from "../screens/diagnosis/immunologicalTests/treponemalTests/EnzymeImmunoassays";
+import { NonTreponemalTests } from "../screens/diagnosis/immunologicalTests/NonTreponemalTests";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -155,6 +156,13 @@ function MyStack() {
         component={EnzymeImmunoassays}
         options={{
           header: () => <Header title="Testes treponêmicos " />,
+        }}
+      />
+      <Stack.Screen
+        name="NonTreponemalTests"
+        component={NonTreponemalTests}
+        options={{
+          header: () => <Header title="Testes não treponêmicos " />,
         }}
       />
     </Stack.Navigator>

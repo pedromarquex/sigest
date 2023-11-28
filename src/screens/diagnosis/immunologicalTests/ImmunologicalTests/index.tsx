@@ -17,7 +17,7 @@ export function ImmunologicalTests() {
       <MenuButton
         title="Testes não treponêmicos "
         icon="microscope"
-        onPress={() => 1}
+        onPress={() => navigation.navigate("NonTreponemalTests")}
       />
       
     </Background>
