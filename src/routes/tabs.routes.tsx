@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { Text, View } from 'react-native';
-
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '../@theme/colors';
 import { fonts } from '../@theme/fonts';
@@ -12,6 +11,7 @@ import AssistanceIcon from '../assets/icons/assistance-icon.svg';
 import HomeActiveIcon from '../assets/icons/home-active-icon.svg';
 import HomeIcon from '../assets/icons/home-icon.svg';
 import { MyStack } from './homeStack.routes';
+import { AboutStack } from './about/aboutStack.routes';
 
 function About() {
   return (
@@ -51,7 +51,7 @@ function tabIcon({ focused, route }: tabIconProps) {
       }
       return <AssistanceIcon width={16} height={18} />;
   }
-  if (route.name === 'About') {
+  if (route.name === 'AboutStack') {
       if (focused) {
           return <AboutActiveIcon width={16} height={18} />;
       }
@@ -104,8 +104,8 @@ export function Tabs() {
         }}
       />
       <Tab.Screen 
-        name="About" 
-        component={About}
+        name="AboutStack" 
+        component={AboutStack}
         options={{
           tabBarLabel: 'Sobre'
         }}
