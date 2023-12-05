@@ -54,7 +54,7 @@ const createStyles = (value: boolean) => StyleSheet.create({
   switchText: {
     fontSize: 14,
     lineHeight: 21,
-    color: colors.blackBlue,
+    color: colors.blackGreen,
     fontFamily: fonts.regular
   },
   buttonsContainer: {
@@ -63,7 +63,7 @@ const createStyles = (value: boolean) => StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     height: 50,
-    borderColor: colors.inputPlaceholder,
+    borderColor: colors.gray4,
     borderWidth: 1,
     borderRadius: 10,
     backgroundColor: '#fff'
@@ -74,14 +74,14 @@ const createStyles = (value: boolean) => StyleSheet.create({
     height: '85%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: value ? colors.mainPurple : '#fff',
+    backgroundColor: value ? colors.mainGreen : '#fff',
     marginLeft: 16,
     marginVertical: 5,
     marginRight: 5,
     borderRadius: 10
   },
   yesText: {
-    color: value ? '#fff' : colors.gray2
+    color: value ? '#fff' : colors.gray4
   },
   noContainer: {
     flex: 1,
@@ -89,13 +89,13 @@ const createStyles = (value: boolean) => StyleSheet.create({
     height: '85%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: value ? '#fff' : colors.mainPurple,
+    backgroundColor: value ? '#fff' : colors.mainGreen,
     marginLeft: 5,
     marginVertical: 5,
     marginRight: 16,
     borderRadius: 10
   },
   noText: {
-    color: value ? colors.gray2 : '#fff'
+    color: value ? colors.gray4 : '#fff'
   }
 })

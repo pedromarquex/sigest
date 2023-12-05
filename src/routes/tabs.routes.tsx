@@ -11,6 +11,7 @@ import AssistanceActiveIcon from '../assets/icons/assistance-active-icon.svg';
 import AssistanceIcon from '../assets/icons/assistance-icon.svg';
 import HomeActiveIcon from '../assets/icons/home-active-icon.svg';
 import HomeIcon from '../assets/icons/home-icon.svg';
+import { AssistanceStack } from './assistance/assistanceStack.routes';
 import { MyStack } from './homeStack.routes';
 
 function About() {
@@ -45,7 +46,7 @@ function tabIcon({ focused, route }: tabIconProps) {
       }
       return <HomeIcon width={16} height={18} />;
   }
-  if (route.name === 'Assistance') {
+  if (route.name === 'AssistanceStack') {
       if (focused) {
           return <AssistanceActiveIcon width={16} height={18} />;
       }
@@ -93,21 +94,24 @@ export function Tabs() {
         name="HomeTab" 
         component={MyStack}
         options={{
-          tabBarLabel: 'Início'
+          tabBarLabel: 'Início',
+          unmountOnBlur: true
         }}
       />
       <Tab.Screen 
-        name="Assistance"
-        component={Assistance}
+        name="AssistanceStack"
+        component={AssistanceStack}
         options={{
-          tabBarLabel: 'Direcionamento'
+          tabBarLabel: 'Direcionamento',
+          unmountOnBlur: true
         }}
       />
       <Tab.Screen 
         name="About" 
         component={About}
         options={{
-          tabBarLabel: 'Sobre'
+          tabBarLabel: 'Sobre',
+          unmountOnBlur: true
         }}
       />
     </Tab.Navigator>

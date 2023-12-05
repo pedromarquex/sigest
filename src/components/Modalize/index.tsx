@@ -25,7 +25,7 @@ Modalize.displayName = 'Modalize'
 
 const globalStyles = StyleSheet.create({
   overlayStyle: {
-    backgroundColor: colors.secondaryPurple
+    backgroundColor: colors.secondaryGreen
   },
   modalStyle: {
     borderTopLeftRadius: 24,

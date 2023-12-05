@@ -21,7 +21,8 @@ export function TextInput ({ style, containerStyle, ...props }: TextInputProps):
         colors: {
           background: props.disabled === true
             ? colors.gray4
-            : '#fff'
+            : '#fff',
+            onSurfaceVariant: colors.gray4,
         },
         fonts: {
           regular: {
