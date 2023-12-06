@@ -3,5 +3,6 @@ export const colors = {
     blackGreen: '#284703',
     blackGreen2: '#262621',
     gray4: '#929CAD',
-    mainGreen: '#728C3B'
+    mainGreen: '#728C3B',
+    secondaryGreen: '#C7D9A0',
 }
