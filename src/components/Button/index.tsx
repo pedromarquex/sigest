@@ -1,15 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View, type ViewStyle } from 'react-native'
+import { StyleSheet, Text, TextStyle, TouchableOpacity, View, type ViewStyle } from 'react-native'
 import { colors } from '../../@theme/colors'
 import { fonts } from '../../@theme/fonts'
 
-interface Props {
+export interface ButtonProps {
   text: string
   onPress: () => void
   style?: ViewStyle
+  textStyle?: TextStyle
 }
 
-export function Button ({ text, onPress, style }: Props): JSX.Element {
+export function Button ({ text, onPress, style, textStyle }: ButtonProps): JSX.Element {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -19,7 +20,7 @@ export function Button ({ text, onPress, style }: Props): JSX.Element {
         style={[styles.container, style]}
       >
         <Text
-          style={styles.text}
+          style={[styles.text, textStyle]}
         >{text}</Text>
       </View>
     </TouchableOpacity>
