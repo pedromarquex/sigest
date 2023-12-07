@@ -37,11 +37,6 @@ function Home() {
       onPress: () => navigation.navigate("Treatment"),
     },
     {
-      title: "Direcionamento assistencial",
-      icon: "pill" as "pill",
-      onPress: () => 1,
-    },
-    {
       title: "Seguimento pós-tratamento",
       icon: "pill" as "pill",
       onPress: () => navigation.navigate("PostTreatmentFollowUp"),

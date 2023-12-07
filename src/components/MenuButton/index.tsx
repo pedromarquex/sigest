@@ -6,18 +6,20 @@ import { colors } from "../../@theme/colors";
 import { fonts } from '../../@theme/fonts';
 import MicroscopeIcon from '../../assets/icons/microscope-icon.svg';
 import PillIcon from '../../assets/icons/pill-icon.svg';
+import VirusIcon from '../../assets/icons/virus-icon.svg';
 
 interface Props {
     title: string;
     onPress: () => void;
-    icon: 'pill' | 'microscope';
+    icon: 'pill' | 'microscope' | 'virus';
 }
 
 function MenuButton({ title, onPress, icon }: Props) {
 
   const icons = {
     pill: <PillIcon width={32} height={32} />,
-    microscope: <MicroscopeIcon width={32} height={32} />
+    microscope: <MicroscopeIcon width={32} height={32} />,
+    virus: <VirusIcon width={32} height={32} />
   }
 
   return (

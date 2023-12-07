@@ -26,7 +26,7 @@ export function SensitivityTest() {
         <Title text="Teste de sensibilidade" />
           <BodyText  text={contentText[0]} withDivider />
           <BodyText  text={contentText[1]} withDivider />
-        <Title text="Importante!" />
+        <Title text="Importante!" style={{textAlign:"center"}}/>
         <BodyText text={contentText[2]} withDivider />
       </BodyContainer>
     </Background>

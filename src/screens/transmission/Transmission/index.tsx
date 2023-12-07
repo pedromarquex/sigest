@@ -11,17 +11,17 @@ export function Transmission() {
     <Background style={styles.container}>
       <MenuButton
         title="Sexual"
-        icon="microscope"
+        icon="virus"
         onPress={() => navigation.navigate("Sexual")}
       />
       <MenuButton
         title="Vertical"
-        icon="microscope"
+        icon="virus"
         onPress={() => navigation.navigate("Vertical")}
       />
       <MenuButton
         title="Sanguínea"
-        icon="microscope"
+        icon="virus"
         onPress={() => navigation.navigate("BloodTransmission")}
       />
     </Background>
