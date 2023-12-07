@@ -15,14 +15,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.appsigest.sigest"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.appsigest.sigest"
+      "package": "com.appsigest.sigest",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
