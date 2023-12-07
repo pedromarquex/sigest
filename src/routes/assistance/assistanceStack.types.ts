@@ -11,6 +11,7 @@ interface DataType {
 }
 
 export interface AssistanceStackParamList {
+  Assistance: undefined
   BasicInfo: undefined
   History: DataType
   FirstMeasurement: DataType
