@@ -10,11 +10,16 @@ import {
   useFonts
 } from '@expo-google-fonts/montserrat';
 
+import * as SplashScreen from 'expo-splash-screen';
+
+import { useCallback } from 'react';
 import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { PaperProvider, Portal } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Tabs } from './src/routes/tabs.routes';
+
+void SplashScreen.preventAutoHideAsync()
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -24,6 +29,17 @@ export default function App() {
     Montserrat_500Medium
   });
 
+  const onLayoutRootView = useCallback(() => {
+    if (fontsLoaded) {
+      // This tells the splash screen to hide immediately! If we call this after
+      // `setAppIsReady`, then we may see a blank screen while the app is
+      // loading its initial state and rendering its first pixels. So instead,
+      // we hide the splash screen once we know the root view has already
+      // performed layout.
+      void SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
   if (!fontsLoaded || fontError) {
     return null;
   }
@@ -31,7 +47,10 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <PaperProvider>
-        <GestureHandlerRootView style={{ flex: 1 }}>
+        <GestureHandlerRootView 
+          style={{ flex: 1 }}
+          onLayout={onLayoutRootView}
+        >
           <Portal.Host>
             <NavigationContainer>
               <StatusBar style="dark" />
