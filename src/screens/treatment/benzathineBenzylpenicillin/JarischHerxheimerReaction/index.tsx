@@ -26,7 +26,7 @@ export function JarischHerxheimerReaction() {
         <BodyText text={contentText[1]} withDivider />
         <Title text="Controle:" />
         <BodyText text={contentText[2]} withDivider />
-        <Title text="Importante!" />
+        <Title text="Importante!" style={{textAlign:"center"}}/>
         <BodyText text={contentText[3]} />
       </BodyContainer>
     </Background>
