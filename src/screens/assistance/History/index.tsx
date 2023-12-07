@@ -6,7 +6,7 @@ import { Switch } from '../../../components/Switch'
 import { Title } from '../../../components/Title'
 import { type AssistanceStackScreenProps } from '../../../routes/assistance/assistanceStack.types'
 
-interface HistoryState {
+export interface HistoryState {
   hasSifilisHistory: boolean
   lastOcurrenceYear: string
   dosisAmount: string

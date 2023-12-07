@@ -8,7 +8,7 @@ import { DateInput } from '../../../components/TextInput/date'
 import { Title } from '../../../components/Title'
 import { type AssistanceStackScreenProps } from '../../../routes/assistance/assistanceStack.types'
 
-interface BasicInfoState {
+export interface BasicInfoState {
   name: string
   birthDate: string
   cpf: string

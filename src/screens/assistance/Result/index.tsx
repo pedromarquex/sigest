@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { AssistanceStackScreenProps } from '../../../routes/assistance/assistanceStack.types'
 import { Background } from '../../../components/Background'
 import { BodyContainer } from '../../../components/BodyContainer'
-import { Title } from '../../../components/Title'
 import { BodyText } from '../../../components/BodyText'
-import { Dialog } from '../../../components/Dialog/dialog'
 import { Button } from '../../../components/Button'
+import { Dialog } from '../../../components/Dialog/dialog'
+import { Title } from '../../../components/Title'
+import { AssistanceStackScreenProps } from '../../../routes/assistance/assistanceStack.types'
+import { BasicInfoState } from '../BasicData'
+import { HistoryState } from '../History'
 
+interface ResultState extends BasicInfoState, HistoryState {}
 
 enum ResultTests {
   POSITIVE_AND_POSITIVE = 'POSITIVE_AND_POSITIVE',
@@ -22,10 +25,26 @@ enum ResultMapper {
 }
 
 export function Result ({ navigation, route }: AssistanceStackScreenProps<'Result'>): JSX.Element {
-  const { data } = route.params
+  const data = route.params as unknown as ResultState
 
   const [open, setOpen] = React.useState(true)
   const [resultTests, setResultTests] = React.useState<ResultTests>(ResultTests.POSITIVE_AND_NEGATIVE)
+
+  useEffect(() => {
+    if (
+      data.testResult === 'REAGENTE' &&
+      data.nonTreponeumTestResult === 'REAGENTE'
+    ) {
+      setResultTests(ResultTests.POSITIVE_AND_POSITIVE)
+    } else if (
+      data.testResult === 'NAO_REAGENTE' &&
+      data.nonTreponeumTestResult === 'NAO_REAGENTE'
+    ) {
+      setResultTests(ResultTests.NEGATIVE_AND_NEGATIVE)
+    } else {
+      setResultTests(ResultTests.POSITIVE_AND_NEGATIVE)
+    }
+  }, [])
 
   const modalText = {
     POSITIVE_AND_POSITIVE : 'Diagnóstico de sífilis',
