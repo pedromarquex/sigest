@@ -1,6 +1,9 @@
 import React, { useReducer } from 'react'
+import { View } from 'react-native'
 import { Background } from '../../../components/Background'
+import { BodyText } from '../../../components/BodyText'
 import { Button } from '../../../components/Button'
+import { Dialog } from '../../../components/Dialog/dialog'
 import { Dropdown } from '../../../components/Dropdown'
 import { Switch } from '../../../components/Switch'
 import { Title } from '../../../components/Title'
@@ -85,6 +88,8 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
     titulation: ''
   })
 
+  const [open, setOpen] = React.useState(false)
+
   // years from 1900 to 2023
   const years = Array.from(Array(124), (_, i) => i + 1900).map((year) => ({ label: year.toString(), value: year.toString() })).reverse()
 
@@ -136,12 +141,16 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
   ]
 
   const navigateToResult = (): void => {
-    navigation.navigate('Result', {
-      data: {
-        ...route.params?.data,
-        ...state
-      }
-    })
+    if (!state.hasTreponeumTest || !state.hasNonTreponeumTest) {
+      setOpen(true)
+    } else {
+      navigation.navigate('Result', {
+        data: {
+          ...route.params?.data,
+          ...state
+        }
+      })
+    }
   }
 
   return (
@@ -250,6 +259,29 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
           />
         </>
       )}
+
+      <Dialog
+        open={open}
+        setOpen={setOpen}
+      >
+        <View>
+          <Title
+            text="Conduta quando não há testes realizados"
+            style={{ textAlign: 'center' }}
+          />
+          <BodyText
+            text="Realizar teste treponêmico (teste rápido), bem como o teste não treponêmico (VDRL)  no pré-natal para rastreio da sífilis na gravidez"
+            style={{ textAlign: 'center' }}
+          />
+        </View>
+        <Button
+          text="Fechar"
+          onPress={() => {
+            setOpen(false)
+          }}
+          style={{ width: 300 }}
+        />
+      </Dialog>
 
     </Background>
   )

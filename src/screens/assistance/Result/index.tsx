@@ -201,15 +201,15 @@ export function Result ({ navigation, route }: AssistanceStackScreenProps<'Resul
           )
         }
         <Title text="Estadiamento:" />
-        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[0].STAGING} />
+        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[0].STAGING as string} />
         <Title text="Esquema terapêutico:" />
-        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[0].THERAPEUTIC_SCHEME} withDivider/>
+        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[0].THERAPEUTIC_SCHEME as string} withDivider/>
         <Title text="Estadiamento:" />
-        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[1].STAGING} />
+        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[1].STAGING as string} />
         <Title text="Esquema terapêutico:" />
-        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[1].THERAPEUTIC_SCHEME} withDivider/>
+        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[1].THERAPEUTIC_SCHEME as string} withDivider/>
         <Title text="Alternativa:" />
-        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[2].ALTERNATIVE} withDivider/>
+        <BodyText text={contentText[resultTests].CLINICAL_CONDUCT[2].ALTERNATIVE as string} withDivider/>
         <Title text="Seguimento (teste não treponêmico):" />
         <BodyText text={contentText[resultTests].FOLLOW_UP} withDivider/>
         <Title text='Interpretação:' />
