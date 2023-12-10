@@ -15,6 +15,7 @@ export function Secondary() {
   const contentText = [
     "Ocorre em média entre seis semanas e seis meses após a cicatrização do cancro, ainda que manifestações iniciais, recorrentes ou subentrantes do secundarismo possam surgir em um período de até um ano. Excepcionalmente, as lesões podem ocorrer em concomitância com a manifestação primária. As manifestações são muito variáveis, mas tendem a seguir uma cronologia própria. Inicialmente, apresenta-se uma erupção macular eritematosa pouco visível (roséola), principalmente no tronco e raiz dos membros. Nessa fase, são comuns as placas em mucosas, assim como lesões acinzentadas e pouco visíveis nas mucosas.",
     "As lesões cutâneas progridem para lesões mais evidentes, papulosas e eritemato acastanhadas que podem atingir todo o tegumento, sendo frequentes nos genitais.",
+    "Habitualmente, acometem a região plantar e palmar, com um colarinho de escamação característico, em geral não pruriginoso. Podem ser identificados condilomas planos nas dobras mucosas, especialmente na área anogenital. Trata-se de lesões úmidas e vegetantes, que são frequentemente confundidas com as verrugas anogenitais causadas pelo HPV. Alopecia em clareira e madarose são achados eventuais. O secundarismo é acompanhado de micropoliadenopatia, sendo característica a identificação dos gânglios epitrocleares. Sintomas inespecíficos como febre baixa, mal-estar, cefaleia e adinamia são comuns. A sintomatologia desaparece em algumas semanas, independentemente de tratamento, trazendo a falsa impressão de cura."
   ];
 
   const [open, setOpen] = React.useState(false)
@@ -41,7 +42,7 @@ export function Secondary() {
               resizeMode="contain"
             />
             <ReferenceText 
-              text="Fonte: (Pinheiro, 2018)."
+              text="Fonte: (Jiménez, 2017)."
               style={{
                 marginTop: 10
               }}
