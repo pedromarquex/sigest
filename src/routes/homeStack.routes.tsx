@@ -12,7 +12,7 @@ import { Transmission } from "../screens/transmission/Transmission";
 import { Sexual } from "../screens/transmission/Sexual";
 import { Vertical } from "../screens/transmission/Vertical";
 import { BloodTransmission } from "../screens/transmission/BloodTransmission";
-import { Diagnosis } from "../screens/diagnosis/Diagnosis";
+import { DiagnosisMenu } from "../screens/diagnosis/DiagnosisMenu";
 import { DirectExams } from "../screens/diagnosis/directExams/DirectExams";
 import { ImmunologicalTests } from "../screens/diagnosis/immunologicalTests/ImmunologicalTests";
 import { TreponemalTests } from "../screens/diagnosis/immunologicalTests/treponemalTests/TreponemalTests";
@@ -33,6 +33,7 @@ import { SensitivityTest } from "../screens/treatment/benzathineBenzylpenicillin
 import { PostTreatmentFollowUp } from "../screens/PostTreatmentFollowUp";
 import { CompulsoryNotification } from "../screens/CompulsoryNotification";
 import { References } from "../screens/References";
+import { DiagnosisContent } from "../screens/diagnosis/DiagnosisContent";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -115,8 +116,8 @@ function MyStack() {
         }}
       />
       <Stack.Screen
-        name="Diagnosis"
-        component={Diagnosis}
+        name="DiagnosisMenu"
+        component={DiagnosisMenu}
         options={{
           header: () => <Header title="Diagnóstico" />,
         }}
@@ -133,6 +134,13 @@ function MyStack() {
         component={ImmunologicalTests}
         options={{
           header: () => <Header title="Testes imunológicos" />,
+        }}
+      />
+      <Stack.Screen
+        name="DiagnosisContent"
+        component={DiagnosisContent}
+        options={{
+          header: () => <Header title="Diagnóstico" />,
         }}
       />
       <Stack.Screen

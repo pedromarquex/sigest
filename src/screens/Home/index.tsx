@@ -29,7 +29,7 @@ function Home() {
     {
       title: "Diagnóstico",
       icon: "pill" as "pill",
-      onPress: () => navigation.navigate("Diagnosis"),
+      onPress: () => navigation.navigate("DiagnosisMenu"),
     },
     {
       title: "Tratamento",

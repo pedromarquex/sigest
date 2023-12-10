@@ -18,9 +18,10 @@ export type RootStackParamList = {
   Sexual: undefined;
   Vertical: undefined;
   BloodTransmission: undefined;
-  Diagnosis: undefined;
+  DiagnosisMenu: undefined;
   DirectExams: undefined;
   ImmunologicalTests: undefined;
+  DiagnosisContent: undefined;
   TreponemalTests: undefined;
   QuickTests: undefined;
   HemagglutinationTests: undefined;
