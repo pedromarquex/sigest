@@ -12,9 +12,9 @@ export interface HistoryState {
   dosisAmount: string
 
   hasTreponeumTest: boolean
-  wichTest: string
+  wichTreponeumTest: string
   pregnancyPeriod: string
-  testResult: string
+  treponeumTestResult: string
 
   hasNonTreponeumTest: boolean
   wichNonTreponeumTest: string
@@ -28,9 +28,9 @@ interface HistoryAction {
   | 'SET_LAST_OCURRENCE_YEAR'
   | 'SET_DOSIS_AMOUNT'
   | 'SET_TREPONEUM_TEST'
-  | 'SET_WICH_TEST'
+  | 'SET_WICH_TREPONEUM_TEST'
   | 'SET_PREGNANCY_PERIOD'
-  | 'SET_TEST_RESULT'
+  | 'SET_TREPONEUM_TEST_RESULT'
   | 'SET_NON_TREPONEUM_TEST'
   | 'SET_WICH_NON_TREPONEUM_TEST'
   | 'SET_NON_TREPONEUM_PREGNANCY_PERIOD'
@@ -51,12 +51,12 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
         return { ...state, dosisAmount: action.payload }
       case 'SET_TREPONEUM_TEST':
         return { ...state, hasTreponeumTest: action.payload }
-      case 'SET_WICH_TEST':
-        return { ...state, wichTest: action.payload }
+      case 'SET_WICH_TREPONEUM_TEST':
+        return { ...state, wichTreponeumTest: action.payload }
       case 'SET_PREGNANCY_PERIOD':
         return { ...state, pregnancyPeriod: action.payload }
-      case 'SET_TEST_RESULT':
-        return { ...state, testResult: action.payload }
+      case 'SET_TREPONEUM_TEST_RESULT':
+        return { ...state, treponeumTestResult: action.payload }
       case 'SET_NON_TREPONEUM_TEST':
         return { ...state, hasNonTreponeumTest: action.payload }
       case 'SET_WICH_NON_TREPONEUM_TEST':
@@ -75,9 +75,9 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
     lastOcurrenceYear: '',
     dosisAmount: '',
     hasTreponeumTest: false,
-    wichTest: '',
+    wichTreponeumTest: '',
     pregnancyPeriod: '',
-    testResult: '',
+    treponeumTestResult: '',
     hasNonTreponeumTest: false,
     wichNonTreponeumTest: '',
     nonTreponeumPregnancyPeriod: '',
@@ -191,8 +191,8 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
           <Dropdown
             items={treponeumTestOptions}
             label="Qual teste?"
-            value={treponeumTestOptions.find((treponeumTest) => treponeumTest.value === state.wichTest) ?? { label: '', value: '' }}
-            onChangeText={(item) => { dispatch({ type: 'SET_WICH_TEST', payload: item.value }) }}
+            value={treponeumTestOptions.find((treponeumTest) => treponeumTest.value === state.wichTreponeumTest) ?? { label: '', value: '' }}
+            onChangeText={(item) => { dispatch({ type: 'SET_WICH_TREPONEUM_TEST', payload: item.value }) }}
             hideFilter
           />
           <Dropdown
@@ -205,8 +205,8 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
           <Dropdown
             items={testResultOptions}
             label="Resultado do teste"
-            value={testResultOptions.find((testResult) => testResult.value === state.testResult) ?? { label: '', value: '' }}
-            onChangeText={(item) => { dispatch({ type: 'SET_TEST_RESULT', payload: item.value }) }}
+            value={testResultOptions.find((treponeumTestResult) => treponeumTestResult.value === state.treponeumTestResult) ?? { label: '', value: '' }}
+            onChangeText={(item) => { dispatch({ type: 'SET_TREPONEUM_TEST_RESULT', payload: item.value }) }}
             hideFilter
           />
         </>
@@ -237,7 +237,7 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
           <Dropdown
             items={testResultOptions}
             label="Resultado do teste"
-            value={testResultOptions.find((testResult) => testResult.value === state.nonTreponeumTestResult) ?? { label: '', value: '' }}
+            value={testResultOptions.find((nonTreponeumTestResult) => nonTreponeumTestResult.value === state.nonTreponeumTestResult) ?? { label: '', value: '' }}
             onChangeText={(item) => { dispatch({ type: 'SET_NON_TREPONEUM_TEST_RESULT', payload: item.value }) }}
             hideFilter
           />
