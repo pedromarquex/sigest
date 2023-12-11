@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { View } from 'react-native'
 import { Background } from '../../../components/Background'
 import { BodyText } from '../../../components/BodyText'
@@ -141,7 +141,7 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
   ]
 
   const navigateToResult = (): void => {
-    if (!state.hasTreponeumTest || !state.hasNonTreponeumTest) {
+    if (!state.hasTreponeumTest && !state.hasNonTreponeumTest) {
       setOpen(true)
     } else {
       navigation.navigate('Result', {
@@ -150,6 +150,29 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
           ...state
         }
       })
+    }
+  }
+
+  function toggleHasTreponeumTest (): void {
+    if (state.hasTreponeumTest) {
+      dispatch({ type: 'SET_TREPONEUM_TEST', payload: false })
+      dispatch({ type: 'SET_WICH_TREPONEUM_TEST', payload: '' })
+      dispatch({ type: 'SET_PREGNANCY_PERIOD', payload: '' })
+      dispatch({ type: 'SET_TREPONEUM_TEST_RESULT', payload: '' })
+    } else {
+      dispatch({ type: 'SET_TREPONEUM_TEST', payload: true })
+    }
+  }
+
+  function toggleHasNonTreponeumTest (): void {
+    if (state.hasNonTreponeumTest) {
+      dispatch({ type: 'SET_NON_TREPONEUM_TEST', payload: false })
+      dispatch({ type: 'SET_WICH_NON_TREPONEUM_TEST', payload: '' })
+      dispatch({ type: 'SET_NON_TREPONEUM_PREGNANCY_PERIOD', payload: '' })
+      dispatch({ type: 'SET_NON_TREPONEUM_TEST_RESULT', payload: '' })
+      dispatch({ type: 'SET_TITULATION', payload: '' })
+    } else {
+      dispatch({ type: 'SET_NON_TREPONEUM_TEST', payload: true })
     }
   }
 
@@ -192,7 +215,7 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
 
       <Switch
         value={state.hasTreponeumTest}
-        onToggle={() => { dispatch({ type: 'SET_TREPONEUM_TEST', payload: !(state.hasTreponeumTest as boolean) }) }}
+        onToggle={() => { toggleHasTreponeumTest() }}
         text="Realizou teste treponêmico durante a gestação?"
       />
       {state.hasTreponeumTest && (
@@ -223,7 +246,7 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
 
       <Switch
         value={state.hasNonTreponeumTest}
-        onToggle={() => { dispatch({ type: 'SET_NON_TREPONEUM_TEST', payload: !(state.hasNonTreponeumTest as boolean) }) }}
+        onToggle={() => { toggleHasNonTreponeumTest() }}
         text="Realizou teste não treponêmico durante a gestação?"
       />
 
@@ -270,7 +293,7 @@ export function History ({ navigation, route }: AssistanceStackScreenProps<'Basi
             style={{ textAlign: 'center' }}
           />
           <BodyText
-            text="Realizar teste treponêmico (teste rápido), bem como o teste não treponêmico (VDRL)  no pré-natal para rastreio da sífilis na gravidez"
+            text="Realizar teste treponêmico (teste rápido), bem como o teste não treponêmico (VDRL)  no pré-natal para rastreio da sífilis na gravidez."
             style={{ textAlign: 'center' }}
           />
         </View>

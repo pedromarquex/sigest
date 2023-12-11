@@ -19,11 +19,26 @@ enum ResultTests {
   NEGATIVE_AND_NEGATIVE = 'NEGATIVE_AND_NEGATIVE'
 }
 
+enum ResultTitle {
+  POSITIVE_AND_POSITIVE = 'POSITIVE_AND_POSITIVE',
+  POSITIVE_AND_NEGATIVE = 'POSITIVE_AND_NEGATIVE',
+  NEGATIVE_AND_POSITIVE = 'NEGATIVE_AND_POSITIVE',
+  NEGATIVE_AND_NEGATIVE = 'NEGATIVE_AND_NEGATIVE',
+  POSITIVE_AND_BLANK = 'POSITIVE_AND_BLANK',
+  NEGATIVE_AND_BLANK = 'NEGATIVE_AND_BLANK',
+  BLANK_AND_POSITIVE = 'BLANK_AND_POSITIVE',
+  BLANK_AND_NEGATIVE = 'BLANK_AND_NEGATIVE',
+}
+
 enum ResultMapper {
   POSITIVE_AND_POSITIVE = 'TESTE TREPONÊMICO REAGENTE E TESTE NÃO TREPONÊMICO REAGENTE',
   POSITIVE_AND_NEGATIVE = 'TESTE TREPONÊMICO REAGENTE E TESTE NÃO TREPONÊMICO NÃO REAGENTE',
   NEGATIVE_AND_POSITIVE = 'TESTE NÃO TREPONÊMICO REAGENTE E TESTE TREPONÊMICO NÃO REAGENTE',
-  NEGATIVE_AND_NEGATIVE = 'TESTE TREPONÊMICO NÃO REAGENTE OU TESTE NÃO TREPONÊMICO NÃO REAGENTE'
+  NEGATIVE_AND_NEGATIVE = 'TESTE TREPONÊMICO NÃO REAGENTE OU TESTE NÃO TREPONÊMICO NÃO REAGENTE',
+  POSITIVE_AND_BLANK = 'TESTE TREPONÊMICO REAGENTE',
+  NEGATIVE_AND_BLANK = 'TESTE TREPONÊMICO NÃO REAGENTE',
+  BLANK_AND_POSITIVE = 'TESTE NÃO TREPONÊMICO REAGENTE',
+  BLANK_AND_NEGATIVE = 'TESTE NÃO TREPONÊMICO NÃO REAGENTE',
 }
 
 export function Result ({ navigation, route }: AssistanceStackScreenProps<'Result'>): JSX.Element {
@@ -31,10 +46,17 @@ export function Result ({ navigation, route }: AssistanceStackScreenProps<'Resul
 
   const [open, setOpen] = React.useState(true)
   const [resultTests, setResultTests] = React.useState<ResultTests>(null)
+  const [title, setTitle] = React.useState<ResultTitle>(null)
+
+  console.log(title)
 
   useEffect(() => {
     if (data) {
-      if (data.treponeumTestResult === 'REAGENTE' && data.nonTreponeumTestResult === 'REAGENTE') {
+      if (
+          (data.treponeumTestResult === 'REAGENTE' && data.nonTreponeumTestResult === 'REAGENTE') ||
+          (data.treponeumTestResult === 'REAGENTE' && !data.hasNonTreponeumTest) ||
+          (data.nonTreponeumTestResult === 'REAGENTE' && !data.hasTreponeumTest)
+        ) {
         setResultTests(ResultTests.POSITIVE_AND_POSITIVE)
       } else if (data.treponeumTestResult === 'NAO_REAGENTE' && data.nonTreponeumTestResult === 'NAO_REAGENTE') {
         setResultTests(ResultTests.NEGATIVE_AND_NEGATIVE)
@@ -46,14 +68,38 @@ export function Result ({ navigation, route }: AssistanceStackScreenProps<'Resul
     }
   }, [data])
 
+  useEffect(() => {
+    if (data) {
+      if (data.treponeumTestResult === 'REAGENTE' && data.nonTreponeumTestResult === 'REAGENTE') {
+        setTitle(ResultTitle.POSITIVE_AND_POSITIVE)
+      } else if (data.treponeumTestResult === 'NAO_REAGENTE' && data.nonTreponeumTestResult === 'NAO_REAGENTE') {
+        setTitle(ResultTitle.NEGATIVE_AND_NEGATIVE)
+      } else if (data.treponeumTestResult === 'REAGENTE' && data.nonTreponeumTestResult === 'NAO_REAGENTE') {
+        setTitle(ResultTitle.POSITIVE_AND_NEGATIVE)
+      } else if (data.treponeumTestResult === 'NAO_REAGENTE' && data.nonTreponeumTestResult === 'REAGENTE') {
+        setTitle(ResultTitle.NEGATIVE_AND_POSITIVE)
+      } else if (data.treponeumTestResult === 'REAGENTE' && !data.hasNonTreponeumTest) {
+        setTitle(ResultTitle.POSITIVE_AND_BLANK)
+      } else if (data.treponeumTestResult === 'NAO_REAGENTE' && !data.hasNonTreponeumTest) {
+        setTitle(ResultTitle.NEGATIVE_AND_BLANK)
+      } else if (data.nonTreponeumTestResult === 'REAGENTE' && !data.hasTreponeumTest) {
+        setTitle(ResultTitle.BLANK_AND_POSITIVE)
+      } else if (data.nonTreponeumTestResult === 'NAO_REAGENTE' && !data.hasTreponeumTest) {
+        setTitle(ResultTitle.BLANK_AND_NEGATIVE)
+      }
+    }
+  }, [data])
+
   const modalText = {
     POSITIVE_AND_POSITIVE : 'Diagnóstico de sífilis',
     POSITIVE_AND_NEGATIVE : 'Realizar um terceiro teste',
     NEGATIVE_AND_POSITIVE : 'Realizar um terceiro teste',
-    NEGATIVE_AND_NEGATIVE : 'Ausência de infecção ou período de incubação'
+    NEGATIVE_AND_NEGATIVE : 'Ausência de infecção ou período de incubação',
+    POSITIVE_AND_BLANK : 'Realizar teste não treponêmico (VDRL), e independente da presença de sinais e sintomas de sífilis, recomenda-se o tratamento imediato com a Benzilpenicilina Benzatina após somente um teste reagente para sífilis (teste treponêmico ou teste não treponêmico).',
+    NEGATIVE_AND_BLANK : 'Realizar teste não treponêmico (VDRL).\nCaso reagente, realizar tratamento para sífilis, independente do teste treponêmico ter sido não reagente.\nCaso não reagente: ausência de sífilis.',
+    BLANK_AND_POSITIVE : 'Realizar teste treponêmico (teste rápido) e independente da presença de sinais e sintomas de sífilis, recomenda-se o tratamento de sífilis após somente um teste reagente.',
+    BLANK_AND_NEGATIVE : 'Realizar teste treponêmico (teste rápido).\nCaso não reagente: ausência de sífilis.\nCaso reagente: Realizar tratamento para sífilis, independentemente dos sinais e sintomas de sífilis, recomenda-se o tratamento de sífilis com apenas um dos testes reagente.',
   }
-
-  const title = 'Descrição das intervenções'
 
   const contentText = {
     POSITIVE_AND_POSITIVE: {
@@ -181,13 +227,18 @@ export function Result ({ navigation, route }: AssistanceStackScreenProps<'Resul
   return (
     <Background style={styles.container}>
       <BodyContainer>
-        <Title text={ResultMapper[resultTests]} style={{ textAlign: 'center' }} />
+        <Title 
+          text={ResultMapper[title]}
+          style={{ textAlign: 'center' }}
+        />
         <Title text='Interpretação:' />
         <BodyText text={contentText[resultTests].INTERPRETATION} withDivider/>
         <Title text='Recomendações:' />
         <BodyText text={contentText[resultTests].RECOMENDATION} withDivider/>
         {
-          resultTests === ResultTests.POSITIVE_AND_NEGATIVE || resultTests === ResultTests.POSITIVE_AND_POSITIVE || resultTests === ResultTests.NEGATIVE_AND_POSITIVE &&(
+          (resultTests === ResultTests.POSITIVE_AND_NEGATIVE || 
+          resultTests === ResultTests.POSITIVE_AND_POSITIVE || 
+          resultTests === ResultTests.NEGATIVE_AND_POSITIVE) && (
           <>
             <Title text="Tratamento indicado:" />
             <BodyText text={contentText[resultTests].INDICATED_TREATMENT} withDivider/>
@@ -228,18 +279,30 @@ export function Result ({ navigation, route }: AssistanceStackScreenProps<'Resul
       >
         <View>
           <Title
-            text={ResultMapper[resultTests]}
+            text={ResultMapper[title]}
             style={{ textAlign: 'center' }}
           />
           <BodyText
-            text={modalText[resultTests]}
+            text={modalText[title]}
             style={{ textAlign: 'center' }}
           />
         </View>
         <Button
-          text="Ver recomendações"
+          text={
+            (
+              title === ResultTitle.BLANK_AND_NEGATIVE ||
+              title === ResultTitle.NEGATIVE_AND_BLANK
+            ) ? "Fechar" : "Ver recomendações"
+          }
           onPress={() => {
-            setOpen(false)
+            if (
+              title === ResultTitle.BLANK_AND_NEGATIVE ||
+              title === ResultTitle.NEGATIVE_AND_BLANK
+            ) {
+              navigation.goBack()
+            } else {
+              setOpen(false)
+            }
           }}
           style={{ width: 300 }}
         />
