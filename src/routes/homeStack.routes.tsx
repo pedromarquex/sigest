@@ -33,7 +33,6 @@ import { SensitivityTest } from "../screens/treatment/benzathineBenzylpenicillin
 import { PostTreatmentFollowUp } from "../screens/PostTreatmentFollowUp";
 import { CompulsoryNotification } from "../screens/CompulsoryNotification";
 import { References } from "../screens/References";
-import { DiagnosisContent } from "../screens/diagnosis/DiagnosisContent";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -134,13 +133,6 @@ function MyStack() {
         component={ImmunologicalTests}
         options={{
           header: () => <Header title="Testes imunológicos" />,
-        }}
-      />
-      <Stack.Screen
-        name="DiagnosisContent"
-        component={DiagnosisContent}
-        options={{
-          header: () => <Header title="Diagnóstico" />,
         }}
       />
       <Stack.Screen
