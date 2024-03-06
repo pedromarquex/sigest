@@ -24,6 +24,11 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.appsigest.sigest",
+      "config": {
+        "appSecret": {
+          "value": "e3935993-2ff1-45bc-8879-ee2e70c57000"
+        }
+      },
       "versionCode": 4
     },
     "web": {

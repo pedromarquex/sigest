@@ -18,5 +18,8 @@
       "distribution": "internal"
     },
     "production": {}
+  },
+  "cli": {
+    "promptToConfigurePushNotifications": false
   }
 }
